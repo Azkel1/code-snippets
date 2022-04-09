@@ -1,9 +1,6 @@
 # DateTime Picker
 This library is designed to provide a customizable date-time picker that not only works, but is consistent on all browsers and devices.
 
-## KNOWN BUGS
-- If you select a date that belongs to the next month but its on the same wee
-
 ## TODO
 
 - [X] Create the timepicker
