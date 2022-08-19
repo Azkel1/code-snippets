@@ -1,0 +1,16 @@
+@use './reset';
+
+:root {
+    --accent: hsl(0, 100%, 82.9%);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timespan {
+    --start-value: 25%;
+    --end-value: 25%;
+
+    header {
+        padding: 0.5rem 1rem;
+    }
+}
