@@ -1,0 +1,110 @@
+<head>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+
+		nav {
+			--_item-inactive-bg: #444;
+			--_item-active-bg: #0070ff;
+			--_item-active-spacing: 1em;
+			--_corner-radius: 7px;
+
+			list-style: none;
+
+			display: flex;
+
+			& > li {
+				background-color: var(--_item-inactive-bg);
+				color: white;
+
+				display: flex;
+
+				transition: margin-inline 300ms, border-radius 300ms;
+
+				/* First non selected, right of selected */
+				&:nth-child(1 of li:has(input:checked) + li) {
+					border-top-left-radius: var(--_corner-radius);
+					border-bottom-left-radius: var(--_corner-radius);
+				}
+
+				/* First non selected, left of selected */
+				&:nth-child(1 of li:not(:has(input:checked))) {
+					border-top-left-radius: var(--_corner-radius);
+					border-bottom-left-radius: var(--_corner-radius);
+				}
+
+				/* Last non selected, right of selected */
+				&:nth-last-child(1 of li:has(input:checked) ~ li) {
+					border-top-right-radius: var(--_corner-radius);
+					border-bottom-right-radius: var(--_corner-radius);
+				}
+
+				/* Last non selected, left of selected */
+				&:nth-child(1 of li:has(+ li > label > input:checked)) {
+					border-top-right-radius: var(--_corner-radius);
+					border-bottom-right-radius: var(--_corner-radius);
+				}
+
+				/* Selected element */
+				&:has(input:checked) {
+					background-color: var(--_item-active-bg);
+					border-radius: var(--_corner-radius);
+
+					margin-inline: var(--_item-active-spacing);
+
+					&:first-of-type {
+						margin-inline-start: 0;
+					}
+
+					&:last-of-type {
+						margin-inline-end: 0;
+					}
+				}
+
+				& > label {
+					cursor: pointer;
+					padding: 0.75ch 1ch;
+
+					& > input[type="radio"] {
+						display: none;
+					}
+				}
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<li>
+			<label>
+				Home
+				<input type="radio" name="nav" />
+			</label>
+		</li>
+		<li>
+			<label>
+				Projects
+				<input type="radio" name="nav" />
+			</label>
+		</li>
+		<li>
+			<label>
+				Changelog
+				<input type="radio" name="nav" checked />
+			</label>
+		</li>
+		<li>
+			<label>
+				Career
+				<input type="radio" name="nav" />
+			</label>
+		</li>
+		<li>
+			<label>
+				About
+				<input type="radio" name="nav" />
+			</label>
+		</li>
+	</nav>
+</body>
